@@ -1,0 +1,145 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-public-facing-homepage-for-the-country-channel-radio-station-that-displays-the-station-name-logo-a-hero-section-with-a-live-stream-play-button-non-functional-placeholder-a-featured-shows-section-and-a-dj-roster-section",
+      "featureTitle": "Build a public-facing homepage for 'The Country Channel' radio station that displays the station name/logo, a hero section with a live-stream play button (non-functional placeholder), a featured shows section, and a DJ roster section.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/DJCard.tsx",
+        "frontend/src/components/ShowCard.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-shows-page-that-lists-all-radio-shows-with-their-name-description-schedule-time-slot-and-associated-dj-name",
+      "featureTitle": "Create a Shows page that lists all radio shows with their name, description, schedule/time slot, and associated DJ name.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/pages/Shows.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-djs-page-that-lists-all-djs-with-their-name-bio-photo-url-or-placeholder-and-associated-shows",
+      "featureTitle": "Create a DJs page that lists all DJs with their name, bio, photo URL (or placeholder), and associated shows.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/DJs.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-admin-dashboard-accessible-via-a-protected-route-admin-the-dashboard-must-have-a-sidebar-with-navigation-to-manage-shows-and-manage-djs-sections-plus-a-summary-overview-total-shows-count-total-djs-count",
+      "featureTitle": "Build an Admin Dashboard accessible via a protected route (/admin). The dashboard must have a sidebar with navigation to 'Manage Shows' and 'Manage DJs' sections, plus a summary overview (total shows count, total DJs count).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/admin/AdminLayout.tsx",
+        "frontend/src/pages/admin/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-shows-management-interface-in-the-admin-dashboard-allowing-the-admin-to-create-edit-and-delete-shows-via-a-form-modal-the-form-must-include-fields-for-title-description-scheduleday-scheduletime-and-dj-selection-dropdown-populated-from-the-djs-list",
+      "featureTitle": "Implement a Shows management interface in the admin dashboard allowing the admin to create, edit, and delete shows via a form modal. The form must include fields for title, description, scheduleDay, scheduleTime, and DJ selection (dropdown populated from the DJs list).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/admin/ShowFormModal.tsx",
+        "frontend/src/pages/admin/ManageShows.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-djs-management-interface-in-the-admin-dashboard-allowing-the-admin-to-create-edit-and-delete-djs-via-a-form-modal-the-form-must-include-fields-for-name-bio-and-photourl",
+      "featureTitle": "Implement a DJs management interface in the admin dashboard allowing the admin to create, edit, and delete DJs via a form modal. The form must include fields for name, bio, and photoUrl.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/admin/DJFormModal.tsx",
+        "frontend/src/pages/admin/ManageDJs.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-cohesive-visual-theme-throughout-the-site-inspired-by-classic-country-music-aesthetics-warm-earthy-tones-browns-tans-burnt-oranges-bold-serif-slab-typography-for-headings-woodgrain-or-rustic-texture-accents-and-a-dark-rich-background-for-the-admin-dashboard-enforce-this-theme-consistently-across-all-public-and-admin-pages",
+      "featureTitle": "Apply a cohesive visual theme throughout the site inspired by classic country music aesthetics: warm earthy tones (browns, tans, burnt oranges), bold serif/slab typography for headings, woodgrain or rustic texture accents, and a dark rich background for the admin dashboard. Enforce this theme consistently across all public and admin pages.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

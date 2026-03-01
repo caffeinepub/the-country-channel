@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Rustic country radio station logo with a vintage microphone and guitar silhouette, warm earthy tones on a dark background (country-channel-logo.dim_400x200.png)\n- Wide hero banner with a moody twilight sky over rolling farmland and a broadcast tower, warm amber and deep brown tones (hero-banner.dim_1440x600.png)\n- Decorative horizontal divider with a rope or woodgrain texture strip (divider-texture.dim_1440x40.png)",
+  "existing_features": [
+    {
+      "id": "feature-build-a-public-facing-homepage-for-the-country-channel-radio-station-that-displays-the-station-name-logo-a-hero-section-with-a-live-stream-play-button-non-functional-placeholder-a-featured-shows-section-and-a-dj-roster-section",
+      "title": "Build a public-facing homepage for 'The Country Channel' radio station that displays the station name/logo, a hero section with a live-stream play button (non-functional placeholder), a featured shows section, and a DJ roster section.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-shows-page-that-lists-all-radio-shows-with-their-name-description-schedule-time-slot-and-associated-dj-name",
+      "title": "Create a Shows page that lists all radio shows with their name, description, schedule/time slot, and associated DJ name.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-djs-page-that-lists-all-djs-with-their-name-bio-photo-url-or-placeholder-and-associated-shows",
+      "title": "Create a DJs page that lists all DJs with their name, bio, photo URL (or placeholder), and associated shows.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-dashboard-accessible-via-a-protected-route-admin-the-dashboard-must-have-a-sidebar-with-navigation-to-manage-shows-and-manage-djs-sections-plus-a-summary-overview-total-shows-count-total-djs-count",
+      "title": "Build an Admin Dashboard accessible via a protected route (/admin). The dashboard must have a sidebar with navigation to 'Manage Shows' and 'Manage DJs' sections, plus a summary overview (total shows count, total DJs count).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-shows-management-interface-in-the-admin-dashboard-allowing-the-admin-to-create-edit-and-delete-shows-via-a-form-modal-the-form-must-include-fields-for-title-description-scheduleday-scheduletime-and-dj-selection-dropdown-populated-from-the-djs-list",
+      "title": "Implement a Shows management interface in the admin dashboard allowing the admin to create, edit, and delete shows via a form modal. The form must include fields for title, description, scheduleDay, scheduleTime, and DJ selection (dropdown populated from the DJs list).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-djs-management-interface-in-the-admin-dashboard-allowing-the-admin-to-create-edit-and-delete-djs-via-a-form-modal-the-form-must-include-fields-for-name-bio-and-photourl",
+      "title": "Implement a DJs management interface in the admin dashboard allowing the admin to create, edit, and delete DJs via a form modal. The form must include fields for name, bio, and photoUrl.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-throughout-the-site-inspired-by-classic-country-music-aesthetics-warm-earthy-tones-browns-tans-burnt-oranges-bold-serif-slab-typography-for-headings-woodgrain-or-rustic-texture-accents-and-a-dark-rich-background-for-the-admin-dashboard-enforce-this-theme-consistently-across-all-public-and-admin-pages",
+      "title": "Apply a cohesive visual theme throughout the site inspired by classic country music aesthetics: warm earthy tones (browns, tans, burnt oranges), bold serif/slab typography for headings, woodgrain or rustic texture accents, and a dark rich background for the admin dashboard. Enforce this theme consistently across all public and admin pages.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Public-facing radio station website for The Country Channel",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Admin dashboard to manage shows (create, edit, delete)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Admin dashboard to manage DJs (create, edit, delete)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement a backend data model and CRUD API for Shows. Each show must store: id, title, description, scheduleDay (e.g. Monday), scheduleTime, djId (optional reference), and a createdAt timestamp.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement a backend data model and CRUD API for DJs. Each DJ must store: id, name, bio, photoUrl, and a createdAt timestamp.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "The Country Channel",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

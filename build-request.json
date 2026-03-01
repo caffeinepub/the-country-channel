@@ -1,0 +1,197 @@
+{
+  "kind": "build_request",
+  "title": "The Country Channel – Radio Station Website with Admin Dashboard",
+  "projectName": "The Country Channel",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Build a public-facing homepage for 'The Country Channel' radio station that displays the station name/logo, a hero section with a live-stream play button (non-functional placeholder), a featured shows section, and a DJ roster section.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a radio station website called the country channel"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Homepage renders 'The Country Channel' branding prominently",
+        "Hero section includes a play button styled as a live-stream trigger",
+        "Featured Shows section displays show cards fetched from the backend",
+        "DJ Roster section displays DJ cards fetched from the backend",
+        "Page is fully responsive on mobile and desktop"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a Shows page that lists all radio shows with their name, description, schedule/time slot, and associated DJ name.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "manage shows"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Shows page lists all shows retrieved from the backend",
+        "Each show card displays name, description, schedule, and DJ name",
+        "Page is accessible from the site navigation"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a DJs page that lists all DJs with their name, bio, photo URL (or placeholder), and associated shows.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "manage djs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "DJs page lists all DJs retrieved from the backend",
+        "Each DJ card shows name, bio, photo/avatar, and linked shows",
+        "Page is accessible from the site navigation"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a backend data model and CRUD API for Shows. Each show must store: id, title, description, scheduleDay (e.g. Monday), scheduleTime, djId (optional reference), and a createdAt timestamp.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "manage shows"
+        ]
+      },
+      "acceptanceCriteria": [
+        "createShow, getShows, getShow, updateShow, deleteShow functions exist in the actor",
+        "Shows are persisted in stable storage",
+        "Each show has all required fields: id, title, description, scheduleDay, scheduleTime, djId, createdAt"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a backend data model and CRUD API for DJs. Each DJ must store: id, name, bio, photoUrl, and a createdAt timestamp.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "manage djs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "createDJ, getDJs, getDJ, updateDJ, deleteDJ functions exist in the actor",
+        "DJs are persisted in stable storage",
+        "Each DJ has all required fields: id, name, bio, photoUrl, createdAt"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build an Admin Dashboard accessible via a protected route (/admin). The dashboard must have a sidebar with navigation to 'Manage Shows' and 'Manage DJs' sections, plus a summary overview (total shows count, total DJs count).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "admin dashboard to manage shows and djs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin dashboard is accessible at /admin",
+        "Sidebar includes links to Manage Shows and Manage DJs",
+        "Overview panel displays total count of shows and DJs",
+        "Layout is distinct from the public-facing site"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement a Shows management interface in the admin dashboard allowing the admin to create, edit, and delete shows via a form modal. The form must include fields for title, description, scheduleDay, scheduleTime, and DJ selection (dropdown populated from the DJs list).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "admin dashboard to manage shows"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin can create a new show via a form modal",
+        "Admin can edit an existing show's details",
+        "Admin can delete a show with a confirmation prompt",
+        "DJ selection dropdown is populated from the backend DJ list",
+        "Changes are immediately reflected in the shows list without full page reload"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement a DJs management interface in the admin dashboard allowing the admin to create, edit, and delete DJs via a form modal. The form must include fields for name, bio, and photoUrl.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "admin dashboard to manage djs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin can create a new DJ via a form modal",
+        "Admin can edit an existing DJ's details",
+        "Admin can delete a DJ with a confirmation prompt",
+        "Changes are immediately reflected in the DJs list without full page reload"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Apply a cohesive visual theme throughout the site inspired by classic country music aesthetics: warm earthy tones (browns, tans, burnt oranges), bold serif/slab typography for headings, woodgrain or rustic texture accents, and a dark rich background for the admin dashboard. Enforce this theme consistently across all public and admin pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "country channel"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette uses warm earthy/rustic tones consistently across all pages",
+        "Headings use bold serif or slab-serif style typography",
+        "Admin dashboard uses a darker variant of the same theme",
+        "No default browser or generic styling is visible"
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must reside in a single Motoko actor (backend/main.mo)",
+    "Do not use external authentication; admin route can use a simple local guard for now",
+    "Do not integrate real audio streaming — the play button is a non-functional placeholder"
+  ],
+  "nonGoals": [
+    "Real-time audio streaming or podcast hosting",
+    "User accounts or listener profiles",
+    "Internet Identity authentication for the admin",
+    "Payment processing",
+    "External APIs or third-party integrations"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Rustic country radio station logo with a vintage microphone and guitar silhouette, warm earthy tones on a dark background (country-channel-logo.dim_400x200.png)",
+      "Wide hero banner with a moody twilight sky over rolling farmland and a broadcast tower, warm amber and deep brown tones (hero-banner.dim_1440x600.png)",
+      "Decorative horizontal divider with a rope or woodgrain texture strip (divider-texture.dim_1440x40.png)"
+    ],
+    "edits": []
+  }
+}
