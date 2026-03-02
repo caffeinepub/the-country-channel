@@ -1,41 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-create-a-recentlyplayed-component-at-frontend-src-components-recentlyplayed-tsx-that-embeds-the-live365-recently-played-iframe-iframe-width-450-height-511-frameborder-0-src-https-live365-com-embeds-v1-played-a57949-s-md-m-dark-iframe-wrap-the-iframe-in-a-responsive-container-that-caps-its-max-width-and-centers-it-horizontally-so-it-displays-correctly-on-both-mobile-and-desktop-style-the-surrounding-section-using-the-existing-country-theme-warm-earthy-tones-serif-headings-woodgrain-rustic-accent-styling-consistent-with-the-rest-of-the-site",
-      "featureTitle": "Create a `RecentlyPlayed` component at `frontend/src/components/RecentlyPlayed.tsx` that embeds the Live365 recently played iframe (`<iframe width=\"450\" height=\"511\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/played/a57949?s=md&m=dark\"></iframe>`). Wrap the iframe in a responsive container that caps its max-width and centers it horizontally so it displays correctly on both mobile and desktop. Style the surrounding section using the existing country theme (warm earthy tones, serif headings, woodgrain/rustic accent styling consistent with the rest of the site).",
-      "files": [
-        "frontend/src/components/RecentlyPlayed.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-18"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-embed-the-recentlyplayed-component-on-the-public-home-page-frontend-src-pages-home-tsx-placed-after-the-ways-to-listen-section-at-the-bottom-of-the-page",
-      "featureTitle": "Embed the `RecentlyPlayed` component on the public Home page (`frontend/src/pages/Home.tsx`), placed after the 'Ways to Listen' section at the bottom of the page.",
-      "files": [
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-19"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

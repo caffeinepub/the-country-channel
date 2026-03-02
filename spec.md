@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Add a "Recently Played" section to the Home page that embeds the Live365 recently played iframe.
+**Goal:** Embed the Live365 iframe player inside the OnAirNow component so listeners can play the stream directly from the page.
 
 **Planned changes:**
-- Create a `RecentlyPlayed` component at `frontend/src/components/RecentlyPlayed.tsx` that embeds the Live365 iframe (`https://live365.com/embeds/v1/played/a57949?s=md&m=dark`, width 450, height 511, frameborder 0) in a responsive, centered container
-- Style the section with the existing country theme (earthy tones, serif headings, rustic/woodgrain accents)
-- Add the `RecentlyPlayed` component to `frontend/src/pages/Home.tsx`, placed after the "Ways to Listen" section
+- Add the Live365 iframe (`https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3`) to `frontend/src/components/OnAirNow.tsx`
+- Wrap the iframe in a responsive, centered container with a max-width cap (450px) to prevent overflow on mobile
 
-**User-visible outcome:** Visitors to the Home page will see a "Recently Played" section below "Ways to Listen" showing the latest tracks played on The Country Channel via the Live365 embed.
+**User-visible outcome:** Visitors see a live audio player embedded prominently in the "On Air Now" section and can start listening without leaving the page.

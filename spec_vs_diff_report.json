@@ -1,15 +1,21 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T20:32:53.580Z",
-  "summary": "Both REQ-18 and REQ-19 are fully implemented. The RecentlyPlayed component was created at the correct path with the exact iframe src, dimensions, and country-themed styling. It is imported and rendered in Home.tsx after the Ways to Listen section. No missing requirements or hallucinated features were found.",
-  "missing_requirements": [],
+  "generatedAt": "2026-03-02T20:38:07.581Z",
+  "summary": "The diff only shows a modification to `project_state.json` (a metadata/state tracking file). There is no evidence of any changes to `frontend/src/components/OnAirNow.tsx`, which is the file required by REQ-20. The Live365 iframe embed, its responsive container, and all related acceptance criteria are absent from the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-20",
+      "requirement": "Embed the Live365 iframe player inside the OnAirNow component, wrapped in a responsive container with max-width cap and horizontal centering, preserving existing country theme styling.",
+      "reason": "The diff contains no changes to `frontend/src/components/OnAirNow.tsx`. The iframe with src `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3`, its responsive wrapper, and all acceptance criteria (max-width cap, mobile overflow prevention, theme preservation, prominent placement) are not implemented.",
+      "evidence": [
+        "frontend/src/components/OnAirNow.tsx"
+      ]
+    }
+  ],
   "hallucinated_features": [],
   "confidence": 0.97,
   "changed_files": [
-    "frontend-file-summaries.txt",
-    "frontend/src/components/RecentlyPlayed.tsx",
-    "frontend/src/pages/Home.tsx",
     "project_state.json"
   ]
 }

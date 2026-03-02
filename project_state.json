@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 15,
+  "projectStateVersion": 17,
   "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
   "architectural_notes": [
     "Show scheduling and 'On Air Now' logic must use CST (Central Standard Time / America/Chicago) timezone for all time comparisons."
@@ -202,6 +202,14 @@
       "id": "AR-15",
       "summary": "Add a 'Recently Played' section to the public-facing site embedding the Live365 recently played iframe (`<iframe width=\"450\" height=\"511\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/played/a57949?s=md&m=dark\"></iframe>`). The iframe should be responsive and centered, styled with the existing country theme.",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
+      "reqIds": [
+        "REQ-20"
+      ],
       "status": "pending"
     }
   ],
