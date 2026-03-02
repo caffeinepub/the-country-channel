@@ -1,8 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
+  "projectStateVersion": 11,
   "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
-  "architectural_notes": [],
+  "architectural_notes": [
+    "Show scheduling and 'On Air Now' logic must use CST (Central Standard Time / America/Chicago) timezone for all time comparisons."
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
@@ -149,6 +151,20 @@
       "summary": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
       "reqIds": [
         "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Ensure the `getCurrentShow` backend function uses CST (Central Standard Time) timezone when matching the current day and time against show schedules.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Update the `getCurrentShow` backend function in `backend/main.mo` to determine the current day of the week and current time using CST (Central Standard Time, UTC-6) instead of UTC. Apply the UTC-6 offset to the IC system time before matching against each show's `scheduleDay` and `scheduleTime` fields so that shows go on air at the correct local CST times.",
+      "reqIds": [
+        "REQ-16"
       ],
       "status": "pending"
     }

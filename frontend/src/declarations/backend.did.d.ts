@@ -35,6 +35,11 @@ export interface _SERVICE {
   'createShow' : ActorMethod<[string, string, string, string], ShowId>,
   'getAllDjs' : ActorMethod<[], Array<DJ>>,
   'getAllShows' : ActorMethod<[], Array<Show>>,
+  /**
+   * / Returns the currently scheduled show based on CST (Central Standard Time, UTC-6).
+   * / The method applies the UTC-6 offset to the IC system time, determines the current
+   * / CST day and time, and matches it against each show's schedule.
+   */
   'getCurrentShow' : ActorMethod<[], [] | [Show]>,
   'getDj' : ActorMethod<[DjId], DJ>,
   'getShow' : ActorMethod<[ShowId], Show>,

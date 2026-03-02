@@ -53,7 +53,8 @@ export default function OnAirNow() {
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
                     <span className="flex items-center gap-1.5 font-body text-sm text-tan/70">
                       <Clock className="w-3.5 h-3.5 text-burnt-orange flex-shrink-0" />
-                      {currentShow.scheduleDay} · {currentShow.scheduleTime}
+                      {currentShow.scheduleDay} · {currentShow.scheduleTime}{' '}
+                      <span className="text-tan/40 text-xs">CST</span>
                     </span>
                     {dj && (
                       <span className="flex items-center gap-1.5 font-body text-sm text-tan/70">

@@ -30,7 +30,7 @@ export default function ShowCard({ show, djs }: ShowCardProps) {
           </div>
           <div className="flex items-center gap-2 text-tan/60">
             <Clock className="w-3.5 h-3.5 text-amber/70 flex-shrink-0" />
-            <span className="font-body text-xs">{show.scheduleTime}</span>
+            <span className="font-body text-xs">{show.scheduleTime} <span className="text-tan/40">CST</span></span>
           </div>
           {dj && (
             <div className="flex items-center gap-2 text-tan/60">

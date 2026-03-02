@@ -1,39 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Embed Live365 iframe player in OnAirNow component",
+  "title": "Use CST timezone for getCurrentShow matching",
   "projectName": "The Country Channel",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-15",
-      "text": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
-      "target": "frontend",
+      "id": "REQ-16",
+      "text": "Update the `getCurrentShow` backend function in `backend/main.mo` to determine the current day of the week and current time using CST (Central Standard Time, UTC-6) instead of UTC. Apply the UTC-6 offset to the IC system time before matching against each show's `scheduleDay` and `scheduleTime` fields so that shows go on air at the correct local CST times.",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "add <iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe> to now playing section"
+          "make sure the shows go on air cst time zone"
         ]
       },
       "acceptanceCriteria": [
-        "The Live365 iframe player appears inside the OnAirNow component (`frontend/src/components/OnAirNow.tsx`)",
-        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, frameborder=0",
-        "The iframe is wrapped in a responsive container with a capped max-width and centered horizontally",
-        "The player renders correctly on both mobile and desktop viewports without horizontal overflow",
-        "Existing country theme styling (warm earthy tones, serif typography, ON AIR badge, show info) is preserved around the player"
+        "The `getCurrentShow` function converts the current IC system time to CST (UTC-6) before extracting the current day and time.",
+        "A show scheduled for, e.g., Monday at 9:00 AM CST becomes active when it is Monday 9:00 AM in the CST timezone, not UTC.",
+        "When UTC time crosses a day boundary but CST has not yet, the CST day is used for matching (e.g., Tuesday 1:00 AM UTC is still Monday in CST).",
+        "The existing return type and API signature of `getCurrentShow` remain unchanged."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files listed in frontend.immutablePaths",
-    "Preserve all existing OnAirNow component styling and functionality",
-    "Use the exact iframe attributes provided by the user: width=450, height=316, frameborder=0, src=https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3"
+    "Do not change the Show or DJ data model schemas.",
+    "Do not modify any frontend immutable paths."
   ],
   "nonGoals": [
-    "Changes to the backend",
-    "Changes to any other component or page",
-    "Replacing or removing the existing show/DJ info display in OnAirNow"
+    "Supporting dynamic or user-selectable timezone settings.",
+    "Storing timezone information per show.",
+    "Adjusting any frontend display formatting for timezone."
   ],
   "imageRequirements": {
     "required": [],

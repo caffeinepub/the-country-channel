@@ -187,6 +187,7 @@ export default function ShowFormModal({ open, onClose, editingShow, djs }: ShowF
               disabled={isEditing || isLoading}
               className="bg-admin-bg border-amber/20 text-tan placeholder:text-tan/30 focus:border-amber disabled:opacity-50"
             />
+            <p className="font-body text-xs text-tan/40">Enter time in CST (Central Standard Time)</p>
             {errors.scheduleTime && <p className="font-body text-xs text-destructive">{errors.scheduleTime}</p>}
           </div>
 

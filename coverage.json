@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T17:14:24.638Z",
+  "generatedAt": "2026-03-02T20:18:59.226Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,20 +11,27 @@
     "implemented": 0,
     "items": [
       {
-        "id": "REQ-15",
-        "summary": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/components/OnAirNow.tsx"
-        ],
+        "id": "REQ-16",
+        "summary": "Update the `getCurrentShow` backend function in `backend/main.mo` to determine the current day of the week and current time using CST (Central Standard Time, UTC-6) instead of UTC. Apply the UTC-6 offset to the IC system time before matching against each show's `scheduleDay` and `scheduleTime` fields so that shows go on air at the correct local CST times.",
+        "status": "unknown",
+        "plannedFiles": [],
         "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/OnAirNow.tsx",
+    "frontend/src/components/ShowCard.tsx",
+    "frontend/src/components/admin/ShowFormModal.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/pages/Shows.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

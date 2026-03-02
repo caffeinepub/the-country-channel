@@ -1,25 +1,6 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Embed Live365 iframe player in OnAirNow component",
-  "requirements": [
-    {
-      "id": "REQ-15",
-      "summary": "Embed the Live365 iframe player inside the OnAirNow component with responsive styling that preserves the existing country theme",
-      "acceptanceCriteria": [
-        "The Live365 iframe player appears inside the OnAirNow component (`frontend/src/components/OnAirNow.tsx`)",
-        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, frameborder=0",
-        "The iframe is wrapped in a responsive container with a capped max-width and centered horizontally",
-        "The player renders correctly on both mobile and desktop viewports without horizontal overflow",
-        "Existing country theme styling (warm earthy tones, serif typography, ON AIR badge, show info) is preserved around the player"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/OnAirNow.tsx",
-          "operation": "modify",
-          "description": "Add the Live365 iframe player with exact attributes (width=450, height=316, frameborder=0, src=https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3) inside the OnAirNow component. Wrap the iframe in a responsive container div with max-width constraint and horizontal centering (e.g., using flexbox or margin auto). Position the player prominently within the section while preserving all existing show info, DJ details, animated ON AIR badge, and country theme styling (warm earthy tones, serif typography). Ensure the container prevents horizontal overflow on mobile viewports."
-        }
-      ]
-    }
-  ]
+  "title": "Use CST timezone for getCurrentShow matching",
+  "requirements": []
 }

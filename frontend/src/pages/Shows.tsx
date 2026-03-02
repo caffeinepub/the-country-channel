@@ -22,6 +22,9 @@ export default function Shows() {
           <p className="font-body text-tan/70 mt-3 max-w-xl">
             From morning wake-up calls to late-night classics — there's always something great on The Country Channel.
           </p>
+          <p className="font-body text-xs text-tan/40 mt-2">
+            All show times are in Central Standard Time (CST).
+          </p>
         </div>
       </div>
 
