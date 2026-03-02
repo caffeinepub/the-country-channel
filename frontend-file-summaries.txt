@@ -1,12 +1,12 @@
 {
   "frontend/src/App.tsx": "Main app component that sets up TanStack Router with public routes (Home, Shows, DJs) wrapped in Layout, and admin routes (Dashboard, ManageShows, ManageDJs) wrapped in AdminLayout.",
-  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations — fetching shows/DJs, creating shows (with optional DJ assignment), assigning DJs to shows, and creating DJs.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations — fetching shows/DJs, creating shows (with optional DJ assignment), assigning DJs to shows, creating DJs, and a new `useCurrentShow` hook that polls `getCurrentShow` every 60 seconds.",
   "frontend/src/components/Layout.tsx": "Public-facing layout wrapper that composes Navigation, page Outlet, and Footer for all public pages.",
-  "frontend/src/components/Navigation.tsx": "Sticky top navigation bar with The Country Channel branding, links to Home/Shows/DJs/Admin, and a responsive mobile hamburger menu.",
+  "frontend/src/components/Navigation.tsx": "Sticky top navigation bar with branding, nav links, admin link, and a new compact pulsing \"On Air\" indicator (with show title on desktop) that appears in both the desktop nav and mobile header/menu when a show is live.",
   "frontend/src/components/Footer.tsx": "Site footer with brand info, quick links, live status indicator, copyright, and caffeine.ai attribution with UTM tracking.",
   "frontend/src/components/ShowCard.tsx": "Reusable card component displaying a show's title, description, schedule day/time, and assigned DJ name with country-themed styling.",
   "frontend/src/components/DJCard.tsx": "Reusable card component displaying a DJ's avatar, name, bio, and list of associated shows with country-themed styling.",
-  "frontend/src/pages/Home.tsx": "Public homepage with hero banner (background image + play button), featured shows grid, and DJ roster section, all fetched from the backend.",
+  "frontend/src/pages/Home.tsx": "Public homepage with hero banner, the new OnAirNow component inserted between the hero/divider and the Featured Shows section, plus the DJ roster section.",
   "frontend/src/pages/Shows.tsx": "Public shows listing page with a page header and responsive grid of ShowCard components fetched from the backend.",
   "frontend/src/pages/DJs.tsx": "Public DJs listing page with a page header and responsive grid of DJCard components fetched from the backend.",
   "frontend/src/components/admin/AdminLayout.tsx": "Admin layout with a dark-themed sidebar (Dashboard/Manage Shows/Manage DJs navigation), responsive mobile overlay, and top breadcrumb bar.",
@@ -16,5 +16,6 @@
   "frontend/src/components/admin/ShowFormModal.tsx": "Dialog modal for creating shows (title, description, schedule day/time, DJ assignment) or editing a show's DJ assignment via the backend.",
   "frontend/src/components/admin/DJFormModal.tsx": "Dialog modal for creating new DJs (name, bio, photoUrl) or viewing existing DJ details (editing not supported by backend).",
   "frontend/src/index.css": "Global styles with OKLCH country-themed color system, Google Fonts imports for Playfair Display/Source Serif 4/Inter, and base typography rules.",
-  "frontend/tailwind.config.js": "Extended Tailwind config with custom country theme tokens (amber, tan, burnt-orange, wood-dark, admin colors) and Playfair Display/Source Serif 4 font families."
+  "frontend/tailwind.config.js": "Extended Tailwind config with custom country theme tokens (amber, tan, burnt-orange, wood-dark, admin colors) and Playfair Display/Source Serif 4 font families.",
+  "frontend/src/components/OnAirNow.tsx": "Full-width \"On Air Now\" section that displays the currently live show info (ON AIR badge, title, schedule, DJ name) alongside an embedded Live365 iframe player; uses a responsive two-column layout on large screens and stacks vertically on mobile, with the existing country theme styling preserved."
 }

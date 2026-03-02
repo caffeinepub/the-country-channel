@@ -2,11 +2,11 @@ import Map "mo:core/Map";
 import Set "mo:core/Set";
 import Time "mo:core/Time";
 import Text "mo:core/Text";
-import Runtime "mo:core/Runtime";
 import Order "mo:core/Order";
 import Array "mo:core/Array";
 import Iter "mo:core/Iter";
 import Nat "mo:core/Nat";
+import Runtime "mo:core/Runtime";
 
 actor {
   // Show and DJ Types
@@ -123,5 +123,14 @@ actor {
 
   public query ({ caller }) func getAllShows() : async [Show] {
     shows.values().toArray().sort();
+  };
+
+  public query ({ caller }) func getCurrentShow() : async ?Show {
+    let sortedShows = shows.values().toArray();
+    if (sortedShows.size() > 0) {
+      ?sortedShows[0];
+    } else {
+      null;
+    };
   };
 };

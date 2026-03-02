@@ -114,6 +114,7 @@ export interface backendInterface {
     createShow(title: string, description: string, scheduleDay: string, scheduleTime: string): Promise<ShowId>;
     getAllDjs(): Promise<Array<DJ>>;
     getAllShows(): Promise<Array<Show>>;
+    getCurrentShow(): Promise<Show | null>;
     getDj(id: DjId): Promise<DJ>;
     getShow(id: ShowId): Promise<Show>;
 }
@@ -190,6 +191,20 @@ export class Backend implements backendInterface {
             return from_candid_vec_n1(this._uploadFile, this._downloadFile, result);
         }
     }
+    async getCurrentShow(): Promise<Show | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getCurrentShow();
+                return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getCurrentShow();
+            return from_candid_opt_n5(this._uploadFile, this._downloadFile, result);
+        }
+    }
     async getDj(arg0: DjId): Promise<DJ> {
         if (this.processError) {
             try {
@@ -224,6 +239,9 @@ function from_candid_Show_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8A
 }
 function from_candid_opt_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_DjId]): DjId | null {
     return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Show]): Show | null {
+    return value.length === 0 ? null : from_candid_Show_n2(_uploadFile, _downloadFile, value[0]);
 }
 function from_candid_record_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     id: _ShowId;

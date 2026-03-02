@@ -26,6 +26,20 @@ export function useGetAllDJs() {
   });
 }
 
+export function useCurrentShow() {
+  const { actor, isFetching } = useActor();
+  return useQuery<Show | null>({
+    queryKey: ['currentShow'],
+    queryFn: async () => {
+      if (!actor) return null;
+      const result = await actor.getCurrentShow();
+      return result ?? null;
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 60000,
+  });
+}
+
 export function useCreateShow() {
   const { actor } = useActor();
   const queryClient = useQueryClient();

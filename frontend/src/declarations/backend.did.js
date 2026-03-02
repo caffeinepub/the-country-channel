@@ -38,6 +38,7 @@ export const idlService = IDL.Service({
     ),
   'getAllDjs' : IDL.Func([], [IDL.Vec(DJ)], ['query']),
   'getAllShows' : IDL.Func([], [IDL.Vec(Show)], ['query']),
+  'getCurrentShow' : IDL.Func([], [IDL.Opt(Show)], ['query']),
   'getDj' : IDL.Func([DjId], [DJ], ['query']),
   'getShow' : IDL.Func([ShowId], [Show], ['query']),
 });
@@ -75,6 +76,7 @@ export const idlFactory = ({ IDL }) => {
       ),
     'getAllDjs' : IDL.Func([], [IDL.Vec(DJ)], ['query']),
     'getAllShows' : IDL.Func([], [IDL.Vec(Show)], ['query']),
+    'getCurrentShow' : IDL.Func([], [IDL.Opt(Show)], ['query']),
     'getDj' : IDL.Func([DjId], [DJ], ['query']),
     'getShow' : IDL.Func([ShowId], [Show], ['query']),
   });

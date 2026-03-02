@@ -1,11 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 7,
   "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Rustic country radio station logo with a vintage microphone and guitar silhouette, warm earthy tones on a dark background (country-channel-logo.dim_400x200.png)\n- Wide hero banner with a moody twilight sky over rolling farmland and a broadcast tower, warm amber and deep brown tones (hero-banner.dim_1440x600.png)\n- Decorative horizontal divider with a rope or woodgrain texture strip (divider-texture.dim_1440x40.png)",
   "existing_features": [
     {
       "id": "feature-build-a-public-facing-homepage-for-the-country-channel-radio-station-that-displays-the-station-name-logo-a-hero-section-with-a-live-stream-play-button-non-functional-placeholder-a-featured-shows-section-and-a-dj-roster-section",
@@ -62,6 +61,38 @@
         "REQ-9"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-usecurrentshow-react-query-hook-in-frontend-src-hooks-usequeries-ts-that-calls-the-backend-getcurrentshow-query-polling-every-60-seconds-so-the-displayed-show-stays-current-without-a-page-refresh",
+      "title": "Add a `useCurrentShow` React Query hook in `frontend/src/hooks/useQueries.ts` that calls the backend `getCurrentShow` query, polling every 60 seconds so the displayed show stays current without a page refresh.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-onairnow-component-styled-with-the-country-theme-warm-earthy-tones-serif-typography-the-component-displays-a-pulsing-red-on-air-badge-the-current-show-s-title-schedule-time-and-the-assigned-dj-s-name-when-no-show-is-currently-scheduled-display-a-friendly-nothing-on-air-right-now-stay-tuned-message",
+      "title": "Create an `OnAirNow` component styled with the country theme (warm earthy tones, serif typography). The component displays a pulsing red 'ON AIR' badge, the current show's title, schedule time, and the assigned DJ's name. When no show is currently scheduled, display a friendly 'Nothing on air right now — stay tuned!' message.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-embed-the-onairnow-component-prominently-on-the-public-home-page-frontend-src-pages-home-tsx-placed-between-the-hero-section-and-the-featured-shows-section-also-add-a-compact-version-of-the-on-air-now-indicator-to-the-site-navigation-bar-frontend-src-components-navigation-tsx-so-it-is-visible-on-all-public-pages",
+      "title": "Embed the `OnAirNow` component prominently on the public Home page (`frontend/src/pages/Home.tsx`), placed between the hero section and the featured shows section. Also add a compact version of the 'On Air Now' indicator to the site Navigation bar (`frontend/src/components/Navigation.tsx`) so it is visible on all public pages.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-embed-the-live365-iframe-player-iframe-width-450-height-316-frameborder-0-src-https-live365-com-embeds-v1-player-a57949-s-md-m-dark-c-mp3-iframe-inside-the-onairnow-component-frontend-src-components-onairnow-tsx-positioned-prominently-within-the-section-the-iframe-must-be-responsive-wrap-it-in-a-container-that-caps-its-max-width-and-centers-it-horizontally-so-it-fits-well-on-both-mobile-and-desktop-layouts-while-preserving-the-existing-country-theme-styling-around-it",
+      "title": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -97,6 +128,26 @@
       "reqIds": [
         "REQ-5"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add an 'On Air Now' display on the public-facing site to show which show is currently live/airing.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add a backend function `getCurrentShow` that determines which show is currently on air by matching the current day of the week and time against each show's `scheduleDay` and `scheduleTime` fields. Return the matching Show record (with optional DJ info) or null/empty if nothing is currently scheduled.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Embed a Live365 iframe player (https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3) in the 'Now Playing' / On Air Now section of the public site.",
+      "reqIds": [],
       "status": "pending"
     }
   ],

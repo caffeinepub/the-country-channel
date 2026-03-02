@@ -35,6 +35,7 @@ export interface _SERVICE {
   'createShow' : ActorMethod<[string, string, string, string], ShowId>,
   'getAllDjs' : ActorMethod<[], Array<DJ>>,
   'getAllShows' : ActorMethod<[], Array<Show>>,
+  'getCurrentShow' : ActorMethod<[], [] | [Show]>,
   'getDj' : ActorMethod<[DjId], DJ>,
   'getShow' : ActorMethod<[ShowId], Show>,
 }

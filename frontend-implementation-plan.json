@@ -1,199 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "The Country Channel – Radio Station Website with Admin Dashboard",
+  "title": "Embed Live365 iframe player in the On Air Now section",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Build public-facing homepage with station branding, hero section with play button, featured shows, and DJ roster",
+      "id": "REQ-14",
+      "summary": "Embed the Live365 iframe player inside the OnAirNow component with responsive layout that preserves the existing country theme styling and show information display",
       "acceptanceCriteria": [
-        "Homepage renders 'The Country Channel' branding prominently",
-        "Hero section includes a play button styled as a live-stream trigger",
-        "Featured Shows section displays show cards fetched from the backend",
-        "DJ Roster section displays DJ cards fetched from the backend",
-        "Page is fully responsive on mobile and desktop"
+        "The Live365 iframe player is visible inside the OnAirNow component on the public Home page.",
+        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, and frameborder=0.",
+        "The iframe is centered horizontally and does not overflow its container on mobile viewports.",
+        "The existing OnAirNow content (ON AIR badge, show title, schedule, DJ name, or the 'nothing on air' message) remains intact alongside the player.",
+        "The overall country theme styling of the OnAirNow section is preserved."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
-          "operation": "create",
-          "description": "Create the public homepage component featuring 'The Country Channel' branding with the generated logo (frontend/public/assets/generated/country-channel-logo.dim_400x200.png), a hero section with the hero banner image (frontend/public/assets/generated/hero-banner.dim_1440x600.png) and non-functional play button, a featured shows section that fetches and displays show cards from backend.getAllShows(), and a DJ roster section that fetches and displays DJ cards from backend.getAllDjs(). Include the decorative divider texture (frontend/public/assets/generated/divider-texture.dim_1440x40.png) between sections. Ensure mobile responsiveness with Tailwind breakpoints."
-        },
-        {
-          "path": "frontend/src/components/ShowCard.tsx",
-          "operation": "create",
-          "description": "Create a reusable ShowCard component that displays a show's title, description, schedule (scheduleDay and scheduleTime), and associated DJ name (resolved via djId lookup). Style with the country theme using warm earthy tones and serif typography."
-        },
-        {
-          "path": "frontend/src/components/DJCard.tsx",
-          "operation": "create",
-          "description": "Create a reusable DJCard component that displays a DJ's name, bio, photo (photoUrl or placeholder avatar), and a list of associated shows. Style with the country theme using warm tones and rustic accents."
-        },
-        {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/OnAirNow.tsx",
           "operation": "modify",
-          "description": "Wire the Home page into the routing structure at the root path ('/'). Import and configure the route so the homepage is accessible as the default landing page."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Create a Shows page listing all radio shows with name, description, schedule, and DJ name",
-      "acceptanceCriteria": [
-        "Shows page lists all shows retrieved from the backend",
-        "Each show card displays name, description, schedule, and DJ name",
-        "Page is accessible from the site navigation"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Shows.tsx",
-          "operation": "create",
-          "description": "Create a Shows page that fetches all shows via backend.getAllShows() and all DJs via backend.getAllDjs(), then renders a grid of ShowCard components. Resolve DJ names by matching show.djId to the DJs array. Apply the country theme styling consistently."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a route for the Shows page at '/shows' and wire it into the router configuration."
-        },
-        {
-          "path": "frontend/src/components/Navigation.tsx",
-          "operation": "create",
-          "description": "Create a site navigation component with links to Home ('/'), Shows ('/shows'), and DJs ('/djs'). Style with the country theme using warm tones and serif headings. This will be included in the layout."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "create",
-          "description": "Create a Layout component that wraps public pages with the Navigation component and applies global country theme styling (warm earthy background, rustic accents). This ensures consistent navigation across all public pages."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wrap public routes (Home, Shows, DJs) with the Layout component to ensure consistent navigation and theming."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Create a DJs page listing all DJs with name, bio, photo, and associated shows",
-      "acceptanceCriteria": [
-        "DJs page lists all DJs retrieved from the backend",
-        "Each DJ card shows name, bio, photo/avatar, and linked shows",
-        "Page is accessible from the site navigation"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/DJs.tsx",
-          "operation": "create",
-          "description": "Create a DJs page that fetches all DJs via backend.getAllDjs() and all shows via backend.getAllShows(), then renders a grid of DJCard components. For each DJ, resolve their associated shows by filtering shows where show.djId matches the DJ's id. Apply the country theme styling."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a route for the DJs page at '/djs' and wire it into the router configuration."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Build an Admin Dashboard at /admin with sidebar navigation and summary overview",
-      "acceptanceCriteria": [
-        "Admin dashboard is accessible at /admin",
-        "Sidebar includes links to Manage Shows and Manage DJs",
-        "Overview panel displays total count of shows and DJs",
-        "Layout is distinct from the public-facing site"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/admin/Dashboard.tsx",
-          "operation": "create",
-          "description": "Create the admin dashboard overview page that fetches total counts via backend.getAllShows() and backend.getAllDjs(), then displays summary cards showing total shows count and total DJs count. Style with a darker variant of the country theme (dark rich background, warm accent colors)."
-        },
-        {
-          "path": "frontend/src/components/admin/AdminLayout.tsx",
-          "operation": "create",
-          "description": "Create an AdminLayout component with a sidebar containing navigation links to 'Dashboard' ('/admin'), 'Manage Shows' ('/admin/shows'), and 'Manage DJs' ('/admin/djs'). Style the sidebar with the dark country theme (rich dark background, earthy accents, bold serif headings). This layout wraps all admin pages."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a route for the admin dashboard at '/admin' and wire nested admin routes ('/admin/shows', '/admin/djs') into the router. Wrap all admin routes with the AdminLayout component to provide consistent sidebar navigation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Implement Shows management interface in admin dashboard with create, edit, delete via form modal",
-      "acceptanceCriteria": [
-        "Admin can create a new show via a form modal",
-        "Admin can edit an existing show's details",
-        "Admin can delete a show with a confirmation prompt",
-        "DJ selection dropdown is populated from the backend DJ list",
-        "Changes are immediately reflected in the shows list without full page reload"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/admin/ManageShows.tsx",
-          "operation": "create",
-          "description": "Create the Manage Shows admin page that lists all shows in a table/grid with edit and delete actions. Fetch shows via backend.getAllShows() and DJs via backend.getAllDjs(). Include an 'Add Show' button that opens a modal form. Edit buttons open the same modal pre-filled with show data. Delete buttons trigger a confirmation dialog. After create/edit/delete, refetch the shows list to reflect changes. Use the shadcn-ui Dialog component for modals. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/admin/ShowFormModal.tsx",
-          "operation": "create",
-          "description": "Create a reusable ShowFormModal component using the shadcn-ui Dialog and Form components. Include fields for title, description, scheduleDay (text or select), scheduleTime (text), and a DJ selection dropdown populated from the DJs list. On submit, call backend.createShow() for new shows or backend.assignDjToShow() to update DJ assignments (note: the backend interface does not expose updateShow, so handle updates by creating and deleting if needed, or request backend extension). Handle form validation and error states. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a route for the Manage Shows page at '/admin/shows' and wire it into the admin router configuration within the AdminLayout wrapper."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Implement DJs management interface in admin dashboard with create, edit, delete via form modal",
-      "acceptanceCriteria": [
-        "Admin can create a new DJ via a form modal",
-        "Admin can edit an existing DJ's details",
-        "Admin can delete a DJ with a confirmation prompt",
-        "Changes are immediately reflected in the DJs list without full page reload"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/admin/ManageDJs.tsx",
-          "operation": "create",
-          "description": "Create the Manage DJs admin page that lists all DJs in a table/grid with edit and delete actions. Fetch DJs via backend.getAllDjs(). Include an 'Add DJ' button that opens a modal form. Edit buttons open the same modal pre-filled with DJ data. Delete buttons trigger a confirmation dialog. After create/edit/delete, refetch the DJs list to reflect changes. Use the shadcn-ui Dialog component for modals. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/admin/DJFormModal.tsx",
-          "operation": "create",
-          "description": "Create a reusable DJFormModal component using the shadcn-ui Dialog and Form components. Include fields for name, bio, and photoUrl. On submit, call backend.createDj() for new DJs (note: the backend interface does not expose updateDj or deleteDj, so handle updates/deletes by noting the limitation or requesting backend extension). Handle form validation and error states. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a route for the Manage DJs page at '/admin/djs' and wire it into the admin router configuration within the AdminLayout wrapper."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Apply cohesive country music visual theme with warm earthy tones, bold serif typography, and rustic textures across all pages",
-      "acceptanceCriteria": [
-        "Color palette uses warm earthy/rustic tones consistently across all pages",
-        "Headings use bold serif or slab-serif style typography",
-        "Admin dashboard uses a darker variant of the same theme",
-        "No default browser or generic styling is visible"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Update global styles to define the country music theme: warm earthy color palette (browns, tans, burnt oranges, dark rich backgrounds), bold serif/slab-serif font imports and typography rules for headings, and rustic texture accents. Ensure the admin dashboard uses a darker variant with rich dark backgrounds and warm accent colors. Override default browser styles completely."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind configuration to include custom country theme colors (e.g., 'tan', 'burnt-orange', 'dark-wood', 'warm-brown') and custom font families for bold serif headings (e.g., 'Merriweather', 'Playfair Display', or a slab-serif). Configure these tokens to be used consistently across all components."
+          "description": "Add the Live365 iframe player element inside the OnAirNow component. Wrap the iframe in a responsive container div that centers it horizontally (mx-auto), sets a max-width constraint (max-w-md or similar), and ensures proper aspect ratio handling. Position the iframe prominently within the section after the live badge and show information, or within the existing content layout. Preserve all existing content including the ON AIR badge, show title, schedule time, DJ name, and the fallback message when nothing is on air. Maintain the existing country theme styling (amber/tan colors, wood-dark accents) and ensure the iframe integrates visually without breaking the section's layout on mobile or desktop viewports."
         }
       ]
     }

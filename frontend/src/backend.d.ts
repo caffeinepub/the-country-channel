@@ -32,6 +32,7 @@ export interface backendInterface {
     createShow(title: string, description: string, scheduleDay: string, scheduleTime: string): Promise<ShowId>;
     getAllDjs(): Promise<Array<DJ>>;
     getAllShows(): Promise<Array<Show>>;
+    getCurrentShow(): Promise<Show | null>;
     getDj(id: DjId): Promise<DJ>;
     getShow(id: ShowId): Promise<Show>;
 }

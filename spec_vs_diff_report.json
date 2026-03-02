@@ -1,107 +1,14 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T19:07:44.258Z",
-  "summary": "The diff implements most of the requested features for The Country Channel radio station website. The frontend pages (Home, Shows, DJs, Admin Dashboard, ManageShows, ManageDJs) and backend actor are present. However, several critical gaps exist: the backend is missing updateShow, deleteShow, updateDJ, and deleteDJ CRUD functions; stable storage is not implemented in the backend; the admin route has no access guard; and delete operations with confirmation prompts are absent from the admin UI.",
-  "missing_requirements": [
-    {
-      "id": "REQ-4",
-      "requirement": "createShow, getShows, getShow, updateShow, deleteShow functions exist in the actor; Shows are persisted in stable storage",
-      "reason": "The backend only implements createShow, getShow, and getAllShows. updateShow and deleteShow are absent. Storage uses var/let with Map.empty without stable keyword, so Shows are not persisted in stable storage across upgrades.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "requirement": "createDJ, getDJs, getDJ, updateDJ, deleteDJ functions exist in the actor; DJs are persisted in stable storage",
-      "reason": "The backend only implements createDj, getDj, and getAllDjs. updateDJ and deleteDJ are absent. Storage uses var/let without stable keyword, so DJs are not persisted in stable storage across upgrades.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "requirement": "Admin dashboard protected route with a simple local guard",
-      "reason": "The admin route at /admin exists but there is no access guard or protection of any kind. The build request specifies 'admin route can use a simple local guard for now'.",
-      "evidence": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/admin/AdminLayout.tsx"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "requirement": "Admin can edit an existing show's details; Admin can delete a show with a confirmation prompt",
-      "reason": "ShowFormModal only supports assigning a DJ when editing and explicitly states title and schedule cannot be changed. deleteShow is not implemented in the backend or UI, and no delete confirmation prompt for shows is present.",
-      "evidence": [
-        "frontend/src/components/admin/ShowFormModal.tsx",
-        "frontend/src/pages/admin/ManageShows.tsx"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "requirement": "Admin can edit an existing DJ's details; Admin can delete a DJ with a confirmation prompt",
-      "reason": "DJFormModal explicitly states editing existing DJs is not supported and only shows a read-only view when editing. deleteDJ is not implemented in the backend or UI, and no delete confirmation prompt for DJs is present.",
-      "evidence": [
-        "frontend/src/components/admin/DJFormModal.tsx",
-        "frontend/src/pages/admin/ManageDJs.tsx"
-      ]
-    }
-  ],
-  "hallucinated_features": [
-    {
-      "description": "Internet Identity authentication integration including AuthClient, InternetIdentityProvider, and useInternetIdentity hook",
-      "reason": "The build request explicitly states 'Do not use external authentication' and 'Internet Identity authentication for the admin' is listed as a non-goal. The diff includes a full Internet Identity integration wrapping the entire app.",
-      "evidence": [
-        "frontend/src/hooks/useInternetIdentity.ts",
-        "frontend/src/main.tsx",
-        "frontend/src/hooks/useActor.ts"
-      ]
-    },
-    {
-      "description": "assignDjToShow as a separate backend endpoint used as a workaround for the missing updateShow",
-      "reason": "The spec requires a proper updateShow function. Instead a separate assignDjToShow function was added as a partial workaround, which was not requested.",
-      "evidence": [
-        "backend/main.mo",
-        "frontend/src/hooks/useQueries.ts"
-      ]
-    },
-    {
-      "description": "Assigned Shows stat card on the Admin Dashboard showing count of shows with a DJ assigned",
-      "reason": "The spec only requires total shows count and total DJs count in the overview panel. An extra Assigned Shows metric was added without being requested.",
-      "evidence": [
-        "frontend/src/pages/admin/Dashboard.tsx"
-      ]
-    }
-  ],
-  "confidence": 0.82,
+  "generatedAt": "2026-03-01T19:23:49.733Z",
+  "summary": "The diff shows modifications to `frontend/src/components/OnAirNow.tsx` that embed the Live365 iframe player alongside existing show info content. The file summary confirms a responsive two-column layout on large screens stacking vertically on mobile, with country theme styling preserved. All acceptance criteria for REQ-14 appear to be addressed.",
+  "missing_requirements": [],
+  "hallucinated_features": [],
+  "confidence": 0.88,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/DJCard.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/Layout.tsx",
-    "frontend/src/components/Navigation.tsx",
-    "frontend/src/components/ShowCard.tsx",
-    "frontend/src/components/admin/AdminLayout.tsx",
-    "frontend/src/components/admin/DJFormModal.tsx",
-    "frontend/src/components/admin/ShowFormModal.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/DJs.tsx",
-    "frontend/src/pages/Home.tsx",
-    "frontend/src/pages/Shows.tsx",
-    "frontend/src/pages/admin/Dashboard.tsx",
-    "frontend/src/pages/admin/ManageDJs.tsx",
-    "frontend/src/pages/admin/ManageShows.tsx",
-    "frontend/tailwind.config.js",
+    "frontend/src/components/OnAirNow.tsx",
     "project_state.json"
   ]
 }

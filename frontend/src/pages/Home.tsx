@@ -3,6 +3,7 @@ import { Play, Radio, ChevronRight } from 'lucide-react';
 import { useGetAllShows, useGetAllDJs } from '../hooks/useQueries';
 import ShowCard from '../components/ShowCard';
 import DJCard from '../components/DJCard';
+import OnAirNow from '../components/OnAirNow';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
@@ -73,6 +74,9 @@ export default function Home() {
         className="h-10 bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/generated/divider-texture.dim_1440x40.png')" }}
       />
+
+      {/* On Air Now */}
+      <OnAirNow />
 
       {/* Featured Shows */}
       <section className="py-16 bg-background">
