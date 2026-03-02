@@ -1,23 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Embed Live365 iframe player in the On Air Now section",
+  "title": "Embed Live365 iframe player in OnAirNow component",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Embed the Live365 iframe player inside the OnAirNow component with responsive layout that preserves the existing country theme styling and show information display",
+      "id": "REQ-15",
+      "summary": "Embed the Live365 iframe player inside the OnAirNow component with responsive styling that preserves the existing country theme",
       "acceptanceCriteria": [
-        "The Live365 iframe player is visible inside the OnAirNow component on the public Home page.",
-        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, and frameborder=0.",
-        "The iframe is centered horizontally and does not overflow its container on mobile viewports.",
-        "The existing OnAirNow content (ON AIR badge, show title, schedule, DJ name, or the 'nothing on air' message) remains intact alongside the player.",
-        "The overall country theme styling of the OnAirNow section is preserved."
+        "The Live365 iframe player appears inside the OnAirNow component (`frontend/src/components/OnAirNow.tsx`)",
+        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, frameborder=0",
+        "The iframe is wrapped in a responsive container with a capped max-width and centered horizontally",
+        "The player renders correctly on both mobile and desktop viewports without horizontal overflow",
+        "Existing country theme styling (warm earthy tones, serif typography, ON AIR badge, show info) is preserved around the player"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/OnAirNow.tsx",
           "operation": "modify",
-          "description": "Add the Live365 iframe player element inside the OnAirNow component. Wrap the iframe in a responsive container div that centers it horizontally (mx-auto), sets a max-width constraint (max-w-md or similar), and ensures proper aspect ratio handling. Position the iframe prominently within the section after the live badge and show information, or within the existing content layout. Preserve all existing content including the ON AIR badge, show title, schedule time, DJ name, and the fallback message when nothing is on air. Maintain the existing country theme styling (amber/tan colors, wood-dark accents) and ensure the iframe integrates visually without breaking the section's layout on mobile or desktop viewports."
+          "description": "Add the Live365 iframe player with exact attributes (width=450, height=316, frameborder=0, src=https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3) inside the OnAirNow component. Wrap the iframe in a responsive container div with max-width constraint and horizontal centering (e.g., using flexbox or margin auto). Position the player prominently within the section while preserving all existing show info, DJ details, animated ON AIR badge, and country theme styling (warm earthy tones, serif typography). Ensure the container prevents horizontal overflow on mobile viewports."
         }
       ]
     }

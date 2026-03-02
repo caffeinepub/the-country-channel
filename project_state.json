@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 9,
   "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
   "architectural_notes": [],
   "known_issues": [],
@@ -146,8 +146,10 @@
     },
     {
       "id": "AR-11",
-      "summary": "Embed a Live365 iframe player (https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3) in the 'Now Playing' / On Air Now section of the public site.",
-      "reqIds": [],
+      "summary": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
+      "reqIds": [
+        "REQ-15"
+      ],
       "status": "pending"
     }
   ],

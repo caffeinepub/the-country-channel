@@ -1,23 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-embed-the-live365-iframe-player-iframe-width-450-height-316-frameborder-0-src-https-live365-com-embeds-v1-player-a57949-s-md-m-dark-c-mp3-iframe-inside-the-onairnow-component-frontend-src-components-onairnow-tsx-positioned-prominently-within-the-section-the-iframe-must-be-responsive-wrap-it-in-a-container-that-caps-its-max-width-and-centers-it-horizontally-so-it-fits-well-on-both-mobile-and-desktop-layouts-while-preserving-the-existing-country-theme-styling-around-it",
-      "featureTitle": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
-      "files": [
-        "frontend/src/components/OnAirNow.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

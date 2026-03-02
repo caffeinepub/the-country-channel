@@ -1,34 +1,30 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T19:23:49.735Z",
+  "generatedAt": "2026-03-02T17:14:24.638Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 1,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-14",
+        "id": "REQ-15",
         "summary": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
-        "status": "implemented",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/components/OnAirNow.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/components/OnAirNow.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/OnAirNow.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

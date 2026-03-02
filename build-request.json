@@ -1,38 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Embed Live365 iframe player in the On Air Now section",
+  "title": "Embed Live365 iframe player in OnAirNow component",
   "projectName": "The Country Channel",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-14",
+      "id": "REQ-15",
       "text": "Embed the Live365 iframe player (`<iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe>`) inside the `OnAirNow` component (`frontend/src/components/OnAirNow.tsx`), positioned prominently within the section. The iframe must be responsive — wrap it in a container that caps its max width and centers it horizontally so it fits well on both mobile and desktop layouts while preserving the existing country theme styling around it.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-1"
         ],
         "quotes": [
           "add <iframe width=\"450\" height=\"316\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3\"></iframe> to now playing section"
         ]
       },
       "acceptanceCriteria": [
-        "The Live365 iframe player is visible inside the OnAirNow component on the public Home page.",
-        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, and frameborder=0.",
-        "The iframe is centered horizontally and does not overflow its container on mobile viewports.",
-        "The existing OnAirNow content (ON AIR badge, show title, schedule, DJ name, or the 'nothing on air' message) remains intact alongside the player.",
-        "The overall country theme styling of the OnAirNow section is preserved."
+        "The Live365 iframe player appears inside the OnAirNow component (`frontend/src/components/OnAirNow.tsx`)",
+        "The iframe src is exactly `https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3` with width=450, height=316, frameborder=0",
+        "The iframe is wrapped in a responsive container with a capped max-width and centered horizontally",
+        "The player renders correctly on both mobile and desktop viewports without horizontal overflow",
+        "Existing country theme styling (warm earthy tones, serif typography, ON AIR badge, show info) is preserved around the player"
       ]
     }
   ],
   "constraints": [
-    "Do not alter the Live365 iframe URL or any of its query parameters.",
-    "Do not modify files listed in frontend.immutablePaths."
+    "Do not modify any files listed in frontend.immutablePaths",
+    "Preserve all existing OnAirNow component styling and functionality",
+    "Use the exact iframe attributes provided by the user: width=450, height=316, frameborder=0, src=https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3"
   ],
   "nonGoals": [
-    "Making the hero section's existing play button functional.",
-    "Adding any other third-party audio players.",
-    "Backend changes of any kind."
+    "Changes to the backend",
+    "Changes to any other component or page",
+    "Replacing or removing the existing show/DJ info display in OnAirNow"
   ],
   "imageRequirements": {
     "required": [],

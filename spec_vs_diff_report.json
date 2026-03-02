@@ -1,14 +1,21 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T19:23:49.733Z",
-  "summary": "The diff shows modifications to `frontend/src/components/OnAirNow.tsx` that embed the Live365 iframe player alongside existing show info content. The file summary confirms a responsive two-column layout on large screens stacking vertically on mobile, with country theme styling preserved. All acceptance criteria for REQ-14 appear to be addressed.",
-  "missing_requirements": [],
+  "generatedAt": "2026-03-02T17:14:24.635Z",
+  "summary": "The diff only shows a modification to project_state.json (a metadata/state tracking file). There are no changes to frontend/src/components/OnAirNow.tsx or any other frontend component file. REQ-15 requires embedding a Live365 iframe player inside the OnAirNow component, but no such change is reflected in the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-15",
+      "requirement": "Embed the Live365 iframe player inside the OnAirNow component (frontend/src/components/OnAirNow.tsx) with exact attributes (width=450, height=316, frameborder=0, src=https://live365.com/embeds/v1/player/a57949?s=md&m=dark&c=mp3), wrapped in a responsive container with capped max-width centered horizontally, preserving existing country theme styling.",
+      "reason": "The diff contains no modifications to frontend/src/components/OnAirNow.tsx. Only project_state.json was modified, which is a metadata file. The iframe embed, responsive wrapper, and all associated acceptance criteria are unimplemented.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
   "hallucinated_features": [],
-  "confidence": 0.88,
+  "confidence": 0.95,
   "changed_files": [
-    "frontend-file-summaries.txt",
-    "frontend/src/components/OnAirNow.tsx",
     "project_state.json"
   ]
 }
