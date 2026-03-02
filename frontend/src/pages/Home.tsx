@@ -4,6 +4,8 @@ import { useGetAllShows, useGetAllDJs } from '../hooks/useQueries';
 import ShowCard from '../components/ShowCard';
 import DJCard from '../components/DJCard';
 import OnAirNow from '../components/OnAirNow';
+import WaysToListen from '../components/WaysToListen';
+import RecentlyPlayed from '../components/RecentlyPlayed';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
@@ -172,6 +174,24 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* Divider */}
+      <div
+        className="h-10 bg-cover bg-center opacity-40"
+        style={{ backgroundImage: "url('/assets/generated/divider-texture.dim_1440x40.png')" }}
+      />
+
+      {/* Ways to Listen */}
+      <WaysToListen />
+
+      {/* Divider */}
+      <div
+        className="h-10 bg-cover bg-center opacity-40"
+        style={{ backgroundImage: "url('/assets/generated/divider-texture.dim_1440x40.png')" }}
+      />
+
+      {/* Recently Played */}
+      <RecentlyPlayed />
     </div>
   );
 }

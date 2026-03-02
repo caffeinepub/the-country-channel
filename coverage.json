@@ -1,37 +1,46 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T20:18:59.226Z",
+  "generatedAt": "2026-03-02T20:32:53.584Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 0,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-16",
-        "summary": "Update the `getCurrentShow` backend function in `backend/main.mo` to determine the current day of the week and current time using CST (Central Standard Time, UTC-6) instead of UTC. Apply the UTC-6 offset to the IC system time before matching against each show's `scheduleDay` and `scheduleTime` fields so that shows go on air at the correct local CST times.",
-        "status": "unknown",
-        "plannedFiles": [],
-        "matchedFiles": []
+        "id": "REQ-18",
+        "summary": "Create a `RecentlyPlayed` component at `frontend/src/components/RecentlyPlayed.tsx` that embeds the Live365 recently played iframe (`<iframe width=\"450\" height=\"511\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/played/a57949?s=md&m=dark\"></iframe>`). Wrap the iframe in a responsive container that caps its max-width and centers it horizontally so it displays correctly on both mobile and desktop. Style the surrounding section using the existing country theme (warm earthy tones, serif headings, woodgrain/rustic accent styling consistent with the rest of the site).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/RecentlyPlayed.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/RecentlyPlayed.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Embed the `RecentlyPlayed` component on the public Home page (`frontend/src/pages/Home.tsx`), placed after the 'Ways to Listen' section at the bottom of the page.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/components/OnAirNow.tsx",
-    "frontend/src/components/ShowCard.tsx",
-    "frontend/src/components/admin/ShowFormModal.tsx",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/pages/Shows.tsx",
+    "frontend/src/components/RecentlyPlayed.tsx",
+    "frontend/src/pages/Home.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

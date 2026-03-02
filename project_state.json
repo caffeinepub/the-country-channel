@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 15,
   "summary": "A radio station website called 'The Country Channel' with a public-facing site and an admin dashboard to manage shows and DJs.",
   "architectural_notes": [
     "Show scheduling and 'On Air Now' logic must use CST (Central Standard Time / America/Chicago) timezone for all time comparisons."
@@ -95,6 +95,30 @@
         "REQ-14"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-ways-to-listen-section-to-the-public-home-page-frontend-src-pages-home-tsx-placed-after-the-onairnow-featured-sections-the-section-must-display-four-listening-platform-cards-live365-https-live365-com-station-a57949-radioline-https-radioline-co-onlineradiobox-https-onlineradiobox-com-and-getmeradio-https-www-getmeradio-com-each-card-shows-the-platform-name-a-brief-label-e-g-listen-on-live365-and-a-styled-link-button-that-opens-the-platform-in-a-new-tab-style-the-section-using-the-existing-country-theme-warm-earthy-tones-serif-headings-woodgrain-rustic-accent-styling",
+      "title": "Add a 'Ways to Listen' section to the public Home page (`frontend/src/pages/Home.tsx`), placed after the OnAirNow/featured sections. The section must display four listening platform cards: Live365 (https://live365.com/station/a57949), Radioline (https://radioline.co), OnlineRadioBox (https://onlineradiobox.com), and GetMeRadio (https://www.getmeradio.com). Each card shows the platform name, a brief label (e.g. 'Listen on Live365'), and a styled link/button that opens the platform in a new tab. Style the section using the existing country theme (warm earthy tones, serif headings, woodgrain/rustic accent styling).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-recentlyplayed-component-at-frontend-src-components-recentlyplayed-tsx-that-embeds-the-live365-recently-played-iframe-iframe-width-450-height-511-frameborder-0-src-https-live365-com-embeds-v1-played-a57949-s-md-m-dark-iframe-wrap-the-iframe-in-a-responsive-container-that-caps-its-max-width-and-centers-it-horizontally-so-it-displays-correctly-on-both-mobile-and-desktop-style-the-surrounding-section-using-the-existing-country-theme-warm-earthy-tones-serif-headings-woodgrain-rustic-accent-styling-consistent-with-the-rest-of-the-site",
+      "title": "Create a `RecentlyPlayed` component at `frontend/src/components/RecentlyPlayed.tsx` that embeds the Live365 recently played iframe (`<iframe width=\"450\" height=\"511\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/played/a57949?s=md&m=dark\"></iframe>`). Wrap the iframe in a responsive container that caps its max-width and centers it horizontally so it displays correctly on both mobile and desktop. Style the surrounding section using the existing country theme (warm earthy tones, serif headings, woodgrain/rustic accent styling consistent with the rest of the site).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-embed-the-recentlyplayed-component-on-the-public-home-page-frontend-src-pages-home-tsx-placed-after-the-ways-to-listen-section-at-the-bottom-of-the-page",
+      "title": "Embed the `RecentlyPlayed` component on the public Home page (`frontend/src/pages/Home.tsx`), placed after the 'Ways to Listen' section at the bottom of the page.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -166,6 +190,18 @@
       "reqIds": [
         "REQ-16"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a 'Ways to Listen' section to the public-facing site listing listening platforms: Live365, Radioline, OnlineRadioBox, and GetMeRadio (with links/logos if available).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add a 'Recently Played' section to the public-facing site embedding the Live365 recently played iframe (`<iframe width=\"450\" height=\"511\" frameborder=\"0\" src=\"https://live365.com/embeds/v1/played/a57949?s=md&m=dark\"></iframe>`). The iframe should be responsive and centered, styled with the existing country theme.",
+      "reqIds": [],
       "status": "pending"
     }
   ],

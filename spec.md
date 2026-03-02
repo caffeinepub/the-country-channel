@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the `getCurrentShow` backend function to use CST (UTC-6) timezone when matching shows to the current day and time.
+**Goal:** Add a "Recently Played" section to the Home page that embeds the Live365 recently played iframe.
 
 **Planned changes:**
-- Modify `getCurrentShow` in `backend/main.mo` to apply a UTC-6 offset to the IC system time before determining the current day of the week and current time
-- Use the CST-adjusted day and time values when matching against each show's `scheduleDay` and `scheduleTime` fields
+- Create a `RecentlyPlayed` component at `frontend/src/components/RecentlyPlayed.tsx` that embeds the Live365 iframe (`https://live365.com/embeds/v1/played/a57949?s=md&m=dark`, width 450, height 511, frameborder 0) in a responsive, centered container
+- Style the section with the existing country theme (earthy tones, serif headings, rustic/woodgrain accents)
+- Add the `RecentlyPlayed` component to `frontend/src/pages/Home.tsx`, placed after the "Ways to Listen" section
 
-**User-visible outcome:** Shows go on air at the correct CST local times instead of UTC times, so a show scheduled for Monday at 9:00 AM CST becomes active at 9:00 AM Central, not 9:00 AM UTC.
+**User-visible outcome:** Visitors to the Home page will see a "Recently Played" section below "Ways to Listen" showing the latest tracks played on The Country Channel via the Live365 embed.

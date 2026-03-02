@@ -1,6 +1,41 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Use CST timezone for getCurrentShow matching",
-  "requirements": []
+  "title": "Add Recently Played section with Live365 iframe",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "summary": "Create a RecentlyPlayed component that embeds the Live365 recently played iframe in a responsive, country-themed container",
+      "acceptanceCriteria": [
+        "A `RecentlyPlayed` component exists at `frontend/src/components/RecentlyPlayed.tsx`.",
+        "The component renders the Live365 iframe with src `https://live365.com/embeds/v1/played/a57949?s=md&m=dark`, width 450, height 511, and frameborder 0.",
+        "The iframe container has a max-width cap and is horizontally centered.",
+        "On mobile viewports the iframe does not overflow or cause horizontal scrolling.",
+        "The section heading and surrounding styling match the existing country theme (earthy tones, serif typography)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RecentlyPlayed.tsx",
+          "operation": "create",
+          "description": "Create a new RecentlyPlayed component that renders a section with a serif heading ('Recently Played') styled using the existing country theme colors (amber-700, tan-100 background, wood-dark accents). Wrap the Live365 iframe (src: https://live365.com/embeds/v1/played/a57949?s=md&m=dark, width: 450, height: 511, frameborder: 0) in a responsive container with max-width constraint (e.g., max-w-md) and horizontal centering (mx-auto). Use Tailwind classes to ensure the iframe scales down on mobile viewports without causing overflow or horizontal scroll. Apply padding and spacing consistent with other section components like OnAirNow and WaysToListen."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Embed the RecentlyPlayed component on the Home page after the Ways to Listen section",
+      "acceptanceCriteria": [
+        "The `RecentlyPlayed` component is imported and rendered in `frontend/src/pages/Home.tsx`.",
+        "It appears after the 'Ways to Listen' section in the page layout.",
+        "The section is visible on the live home page without any route or layout changes."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Import the RecentlyPlayed component from '../components/RecentlyPlayed'. Add a RecentlyPlayed component instance after the WaysToListen section at the bottom of the page layout, ensuring it is rendered within the existing page structure. Verify that the component appears in the correct visual order on the Home page without requiring any routing or layout changes."
+        }
+      ]
+    }
+  ]
 }
